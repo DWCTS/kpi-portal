@@ -425,6 +425,102 @@
   .logout-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; border-radius: 6px; padding: 4px 10px; font-size: 12px; cursor: pointer; font-family: inherit; }
   .logout-btn:hover { background: rgba(255,255,255,0.25); }
 
+  /* ── 계산기 섹션 ── */
+  .calc-section-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .calc-toggle-btn {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; cursor: pointer; background: var(--surface);
+    border: none; font-family: inherit; transition: background 0.15s;
+  }
+  .calc-toggle-btn:hover { background: var(--surface2); }
+  .calc-chevron { font-size: 16px; color: var(--text-muted); transition: transform 0.2s; }
+  .calc-chevron.open { transform: rotate(180deg); }
+  .calc-detail-wrap { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+  .calc-detail-wrap.open { max-height: 3000px; }
+  .calc-detail-inner { padding: 0 16px 16px; }
+  .calc-sub-card {
+    background: var(--surface2);
+    border-radius: 8px; padding: 14px 16px; margin-bottom: 10px;
+  }
+  .calc-sub-title {
+    font-size: 11px; font-weight: 600; color: var(--text-muted);
+    letter-spacing: 0.5px; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .calc-sub-title::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+  .calc-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .calc-row5 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .calc-metric {
+    background: var(--surface); border-radius: 6px; padding: 10px 12px;
+  }
+  .calc-editable { border: 1.5px solid #185fa5 !important; }
+  .calc-metric-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+  .calc-metric-value { font-size: 13px; font-weight: 600; color: var(--text); }
+  .calc-metric-value.green { color: #1d9e75; }
+  .calc-metric-value.red { color: #a32d2d; }
+  .calc-db-hint { font-size: 10px; color: #185fa5; margin-top: 3px; }
+  .calc-auto-hint { font-size: 10px; color: #1d9e75; margin-top: 3px; }
+  .calc-edit-input {
+    font-size: 13px; font-weight: 600; color: var(--text);
+    background: transparent; border: none; outline: none;
+    width: 100%; font-family: inherit;
+    border-bottom: 1px solid #185fa5; padding-bottom: 2px; margin-top: 2px;
+  }
+  .calc-score-row {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .calc-score-box {
+    background: var(--surface2); border-radius: 8px;
+    padding: 10px 14px; flex: 1; min-width: 90px; text-align: center;
+  }
+  .calc-score-box.blue { background: #e6f1fb; }
+  .calc-score-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+  .calc-score-value { font-size: 18px; font-weight: 600; color: var(--text); }
+  .calc-score-value.green { color: #1d9e75; }
+  .calc-score-value.red { color: #a32d2d; }
+  .calc-score-box.blue .calc-score-value { color: #0c447c; }
+  .calc-op { font-size: 18px; color: var(--text-muted); flex-shrink: 0; }
+  .calc-score-inline {
+    background: var(--surface); border-radius: 6px; padding: 10px 14px;
+    margin-top: 10px; display: flex; align-items: center; gap: 12px;
+  }
+  .calc-score-inline-label { font-size: 12px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+  .calc-score-inline-val { font-size: 18px; font-weight: 600; white-space: nowrap; color: var(--text); }
+  .calc-score-inline-val.green { color: #1d9e75; }
+  .calc-score-inline-val.red { color: #a32d2d; }
+  .calc-score-inline-val.blue { color: #0c447c; }
+  .calc-score-inline-div { width: 0.5px; height: 24px; background: var(--border); flex-shrink: 0; }
+  .calc-score-inline-formula { font-size: 12px; color: var(--text-muted); line-height: 1.7; flex: 1; }
+  .calc-score-inline-formula span { color: var(--text); font-weight: 600; }
+  .calc-formula-note {
+    font-size: 12px; color: var(--text-muted);
+    background: var(--surface); border-radius: 6px;
+    padding: 10px 14px; margin-top: 10px; line-height: 1.8;
+  }
+  .calc-formula-note span { color: var(--text); font-weight: 600; }
+  .calc-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 10px; table-layout: fixed; }
+  .calc-table th { background: var(--surface); color: var(--text-muted); font-weight: 600; padding: 7px 8px; text-align: center; border: 1px solid var(--border); font-size: 11px; }
+  .calc-table td { padding: 7px 8px; border: 1px solid var(--border); text-align: center; }
+  .calc-table td.label { text-align: left; color: var(--text-muted); }
+  .calc-table-input { font-size: 12px; font-weight: 600; color: var(--text); background: transparent; border: none; outline: none; width: 100%; font-family: inherit; border-bottom: 1px solid #185fa5; text-align: center; }
+  .calc-link-btn {
+    width: 100%; padding: 10px; margin-top: 10px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; font-size: 13px; font-weight: 500;
+    color: var(--text-muted); cursor: pointer; font-family: inherit;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background 0.15s;
+  }
+  .calc-link-btn:hover { background: var(--surface2); }
+
+
 </style>
 </head>
 <body>
@@ -629,7 +725,7 @@
   <!-- 탭2: 점수 계산기 -->
   <div class="panel" id="tab-calc">
 
-    <!-- 구글 시트 자동 로드 상태 -->
+    <!-- 로딩 상태 -->
     <div id="loading-status" style="text-align:center; padding:24px; background:var(--surface); border-radius:var(--radius); border:1px solid var(--border); margin-bottom:20px;">
       <div style="font-size:28px; margin-bottom:8px;">⏳</div>
       <p style="font-size:13px; color:var(--text-muted);">데이터를 불러오는 중...</p>
@@ -641,144 +737,416 @@
       <span style="margin-left:auto; font-size:12px; color:var(--text-muted);" id="uploadCount"></span>
     </div>
 
-    <!-- 직원 선택 -->
-    <div class="card">
-      <div class="card-title">직원 선택</div>
-      <div class="select-row">
-        <div class="select-group">
-          <label>부문</label>
-          <select id="sel-dept" onchange="filterEmployees()">
-            <option value="">전체</option>
-          </select>
+    <!-- 직원 선택 (관리자/조직장) -->
+    <div id="emp-select-wrap" style="display:none;">
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title">직원 선택</div>
+        <div class="select-row">
+          <div class="select-group">
+            <label>부문</label>
+            <select id="sel-dept" onchange="filterEmployees()"><option value="">전체</option></select>
+          </div>
+          <div class="select-group">
+            <label>팀</label>
+            <select id="sel-team" onchange="filterEmployees()"><option value="">전체</option></select>
+          </div>
+          <div class="select-group">
+            <label>담당자</label>
+            <select id="sel-employee" onchange="loadCalcEmployee()"><option value="">선택하세요</option></select>
+          </div>
         </div>
-        <div class="select-group">
-          <label>팀</label>
-          <select id="sel-team" onchange="filterEmployees()">
-            <option value="">전체</option>
-          </select>
-        </div>
-        <div class="select-group">
-          <label>담당자</label>
-          <select id="sel-employee" onchange="loadEmployeeData()">
-            <option value="">선택하세요</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="employee-info" style="display:none; padding:12px 14px; background:var(--surface2); border-radius:8px; font-size:13px;">
-        <span id="emp-rrr" style="font-weight:600; color:var(--accent);"></span>
-        <span id="emp-team" style="color:var(--text-muted); margin-left:10px;"></span>
       </div>
     </div>
 
-    <!-- 실적 입력 -->
-    <div class="card" id="calc-card" style="display:none;">
-      <div class="card-title">실적 입력 <span id="calc-month-label" style="font-size:12px; color:var(--text-muted); font-weight:400;"></span></div>
+    <!-- 계산기 본체 -->
+    <div id="calc-body" style="display:none;">
 
-      <div class="calc-section">
-        <div class="calc-section-title">MUST (이익)</div>
-        <div class="input-grid">
-          <div class="input-group">
-            <label>MUST 목표 (원)</label>
-            <input type="text" id="must-target" class="comma-input" placeholder="예: 12000000">
-            <div class="input-hint" id="must-target-hint"></div>
+      <!-- 프로필 -->
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+        <div style="width:44px; height:44px; border-radius:50%; background:var(--accent-light); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:var(--accent-text); flex-shrink:0;" id="calc-avatar">--</div>
+        <div style="flex:1;">
+          <div style="font-size:16px; font-weight:600; color:var(--text);" id="calc-name">-</div>
+          <div style="font-size:12px; color:var(--text-muted); margin-top:2px;" id="calc-team">-</div>
+        </div>
+        <span style="font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px; background:var(--accent-light); color:var(--accent-text);" id="calc-rrr">-</span>
+      </div>
+
+      <!-- MUST 계산기 -->
+      <div class="calc-section-wrap" id="wrap-must">
+        <div class="calc-toggle-btn" onclick="toggleCalcSection('must')">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:13px; font-weight:600;">MUST</span>
+            <span style="font-size:12px; color:var(--text-muted);" id="must-배점-label">배점 —</span>
           </div>
-          <div class="input-group">
-            <label>MUST 실적 (원)</label>
-            <input type="text" id="must-actual" class="comma-input" placeholder="예: 15000000">
-            <div class="input-hint" id="must-actual-hint"></div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:600; color:var(--accent);" id="must-preview">— 점</span>
+            <i class="ti ti-chevron-down calc-chevron" id="chevron-must" aria-hidden="true"></i>
           </div>
-          <div class="input-group">
-            <label>영업 월수</label>
-            <input type="number" id="biz-months" placeholder="예: 4" min="1" max="12">
-            <div class="input-hint" id="biz-months-hint"></div>
+        </div>
+        <div class="calc-detail-wrap" id="detail-must">
+          <div class="calc-detail-inner">
+            <!-- 전월 누계실적 -->
+            <div class="calc-sub-card">
+              <div class="calc-sub-title">전월 누계실적</div>
+              <div class="calc-row3">
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 목표 (원)</div>
+                  <div class="calc-metric-value" id="must-prev-target">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 실적 (원)</div>
+                  <div class="calc-metric-value" id="must-prev-actual">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">달성률</div>
+                  <div class="calc-metric-value green" id="must-prev-rate">—</div>
+                  <div class="calc-auto-hint">자동 계산</div>
+                </div>
+              </div>
+            </div>
+            <!-- 당월 예상 평가이익 -->
+            <div class="calc-sub-card">
+              <div class="calc-sub-title">당월 예상 평가이익</div>
+              <div class="calc-row3">
+                <div class="calc-metric calc-editable">
+                  <div class="calc-metric-label" style="color:#185fa5;">당월 예상매출 (원)</div>
+                  <input class="calc-edit-input" id="must-expected-sales" value="" oninput="calcMUST()">
+                  <div style="font-size:10px; color:#185fa5; margin-top:3px;">✏ 직접 수정 가능</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">평균이익률</div>
+                  <div class="calc-metric-value" id="must-profit-rate">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">당월 예상 평가이익 (원)</div>
+                  <div class="calc-metric-value green" id="must-monthly-profit">—</div>
+                  <div class="calc-auto-hint">예상매출 × 이익률</div>
+                </div>
+              </div>
+            </div>
+            <!-- 당월 누계 예상실적 -->
+            <div class="calc-sub-card">
+              <div class="calc-sub-title">당월 누계 예상실적</div>
+              <div class="calc-row3">
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 목표 (원)</div>
+                  <div class="calc-metric-value" id="must-curr-target">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 예상실적 (원)</div>
+                  <div class="calc-metric-value green" id="must-curr-actual">—</div>
+                  <div class="calc-auto-hint">전월누계 + 당월예상</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">달성률</div>
+                  <div class="calc-metric-value green" id="must-curr-rate">—</div>
+                  <div class="calc-auto-hint">자동 계산</div>
+                </div>
+              </div>
+            </div>
+            <!-- 점수 산출 -->
+            <div class="calc-score-row">
+              <div class="calc-score-box">
+                <div class="calc-score-label">기본점수</div>
+                <div class="calc-score-value" id="must-base-score">—</div>
+              </div>
+              <span class="calc-op">+</span>
+              <div class="calc-score-box">
+                <div class="calc-score-label">가산점</div>
+                <div class="calc-score-value green" id="must-bonus-score">—</div>
+              </div>
+              <span class="calc-op">=</span>
+              <div class="calc-score-box blue">
+                <div class="calc-score-label">MUST 예상점수</div>
+                <div class="calc-score-value" id="must-total-score">—</div>
+              </div>
+            </div>
+            <div class="calc-formula-note" id="must-formula-note">—</div>
           </div>
         </div>
       </div>
 
-      <div class="calc-section" id="section-funnel" style="display:none;">
-        <div class="calc-section-title" id="funnel-section-title">펀넬</div>
-        <div class="input-grid">
-          <div class="input-group">
-            <label id="funnel-target-label">펀넬 목표 (원)</label>
-            <input type="text" id="funnel-target" class="comma-input" placeholder="예: 1000000000">
-            <div class="input-hint" id="funnel-target-hint"></div>
+      <!-- 펀넬 계산기 -->
+      <div class="calc-section-wrap" id="wrap-funnel">
+        <div class="calc-toggle-btn" onclick="toggleCalcSection('funnel')">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:13px; font-weight:600;" id="funnel-title-label">펀넬</span>
+            <span style="font-size:12px; color:var(--text-muted);" id="funnel-배점-label">배점 —</span>
           </div>
-          <div class="input-group">
-            <label id="funnel-actual-label">펀넬 실적 (원)</label>
-            <input type="text" id="funnel-actual" class="comma-input" placeholder="예: 1200000000">
-            <div class="input-hint" id="funnel-actual-hint"></div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:600; color:var(--accent);" id="funnel-preview">— 점</span>
+            <i class="ti ti-chevron-down calc-chevron" id="chevron-funnel" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="calc-detail-wrap" id="detail-funnel">
+          <div class="calc-detail-inner">
+            <!-- 익월펀넬 -->
+            <div class="calc-sub-card">
+              <div class="calc-sub-title" id="funnel-imwol-title">익월펀넬 — 세금계산서 발행일이 익월인 펀넬</div>
+              <div style="overflow-x:auto;">
+                <table class="calc-table">
+                  <thead><tr><th>구분</th><th>펀넬</th><th>전환율</th><th>예상매출</th><th>가이드매출</th><th>달성률</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td class="label">약속</td>
+                      <td><input class="calc-table-input" id="funnel-imwol-funnel" value="" oninput="calcFunnel()"></td>
+                      <td id="funnel-imwol-conv">—</td>
+                      <td id="funnel-imwol-exp">—</td>
+                      <td id="funnel-imwol-guide">—</td>
+                      <td id="funnel-imwol-rate" style="color:#1d9e75; font-weight:600;">—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="calc-score-inline">
+                <span class="calc-score-inline-label">기본점수</span>
+                <span class="calc-score-inline-val" id="funnel-base-score">—</span>
+                <div class="calc-score-inline-div"></div>
+                <div class="calc-score-inline-formula" id="funnel-base-formula">—</div>
+              </div>
+            </div>
+            <!-- 익익월펀넬 -->
+            <div class="calc-sub-card">
+              <div class="calc-sub-title">익익월펀넬 — 세금계산서 발행일이 익익월인 펀넬</div>
+              <div style="overflow-x:auto;">
+                <table class="calc-table">
+                  <thead><tr><th>구분</th><th>펀넬</th><th>전환율</th><th>예상매출</th><th>가이드매출</th><th>달성률</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td class="label">약속</td>
+                      <td><input class="calc-table-input" id="funnel-ikik-promise" value="" oninput="calcFunnel()"></td>
+                      <td id="funnel-ikik-promise-conv">—</td>
+                      <td id="funnel-ikik-promise-exp">—</td>
+                      <td rowspan="2" id="funnel-ikik-guide" style="vertical-align:middle;">—</td>
+                      <td rowspan="2" id="funnel-ikik-rate" style="vertical-align:middle; color:#1d9e75; font-weight:600;">—</td>
+                    </tr>
+                    <tr>
+                      <td class="label">약속외</td>
+                      <td><input class="calc-table-input" id="funnel-ikik-other" value="" oninput="calcFunnel()"></td>
+                      <td id="funnel-ikik-other-conv">—</td>
+                      <td id="funnel-ikik-other-exp">—</td>
+                    </tr>
+                    <tr>
+                      <td class="label" style="font-weight:600;">합계</td>
+                      <td></td><td></td>
+                      <td id="funnel-ikik-total" style="font-weight:600;">—</td>
+                      <td></td><td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="calc-score-inline">
+                <span class="calc-score-inline-label">가산점</span>
+                <span class="calc-score-inline-val green" id="funnel-bonus-score">—</span>
+                <div class="calc-score-inline-div"></div>
+                <div class="calc-score-inline-formula" id="funnel-bonus-formula">—</div>
+              </div>
+            </div>
+            <!-- 전월예상 대비 -->
+            <div class="calc-sub-card">
+              <div class="calc-sub-title">전월예상 대비 당월실적</div>
+              <div class="calc-row5">
+                <div class="calc-metric calc-editable">
+                  <div class="calc-metric-label" style="color:#185fa5;">당월 예상매출 (원)</div>
+                  <input class="calc-edit-input" id="funnel-curr-sales" value="" oninput="calcFunnelDeduct()">
+                  <div style="font-size:10px; color:#185fa5; margin-top:3px;">✏ 직접 수정 가능</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">가이드매출 (원)</div>
+                  <div class="calc-metric-value" id="funnel-guide-disp">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">당월 예상 달성률</div>
+                  <div class="calc-metric-value green" id="funnel-curr-rate">—</div>
+                  <div class="calc-auto-hint">자동 계산</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">전월 예상 달성률</div>
+                  <div class="calc-metric-value" id="funnel-prev-rate">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">달성률 차이</div>
+                  <div class="calc-metric-value red" id="funnel-diff">—</div>
+                  <div class="calc-auto-hint">당월 - 전월예상</div>
+                </div>
+              </div>
+              <div class="calc-score-inline">
+                <span class="calc-score-inline-label">감점</span>
+                <span class="calc-score-inline-val red" id="funnel-deduct-score">—</span>
+                <div class="calc-score-inline-div"></div>
+                <div class="calc-score-inline-formula" id="funnel-deduct-formula">—</div>
+              </div>
+            </div>
+            <!-- 점수 산출 -->
+            <div class="calc-score-row">
+              <div class="calc-score-box">
+                <div class="calc-score-label">기본점수</div>
+                <div class="calc-score-value" id="funnel-score-base">—</div>
+              </div>
+              <span class="calc-op">+</span>
+              <div class="calc-score-box">
+                <div class="calc-score-label">가산점</div>
+                <div class="calc-score-value green" id="funnel-score-bonus">—</div>
+              </div>
+              <span class="calc-op">+</span>
+              <div class="calc-score-box">
+                <div class="calc-score-label">감점</div>
+                <div class="calc-score-value red" id="funnel-score-deduct">—</div>
+              </div>
+              <span class="calc-op">=</span>
+              <div class="calc-score-box blue">
+                <div class="calc-score-label">펀넬 예상점수</div>
+                <div class="calc-score-value" id="funnel-total-score">—</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="calc-section" id="section-jong" style="display:none;">
-        <div class="calc-section-title">종횡무진</div>
-        <div class="input-grid">
-          <div class="input-group">
-            <label>종횡무진 목표 (원)</label>
-            <input type="text" id="jong-target" class="comma-input" placeholder="예: 500000000">
-            <div class="input-hint" id="jong-target-hint"></div>
+      <!-- 종횡무진 계산기 -->
+      <div class="calc-section-wrap" id="wrap-jong" style="display:none;">
+        <div class="calc-toggle-btn" onclick="toggleCalcSection('jong')">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:13px; font-weight:600;">종횡무진</span>
+            <span style="font-size:12px; color:var(--text-muted);" id="jong-배점-label">배점 —</span>
           </div>
-          <div class="input-group">
-            <label>종횡무진 실적 (원)</label>
-            <input type="text" id="jong-actual" class="comma-input" placeholder="예: 520000000">
-            <div class="input-hint" id="jong-actual-hint"></div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:600; color:var(--accent);" id="jong-preview">— 점</span>
+            <i class="ti ti-chevron-down calc-chevron" id="chevron-jong" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="calc-detail-wrap" id="detail-jong">
+          <div class="calc-detail-inner">
+            <div class="calc-sub-card">
+              <div class="calc-sub-title">당월</div>
+              <div class="calc-row3">
+                <div class="calc-metric">
+                  <div class="calc-metric-label">당월 목표 (원)</div>
+                  <div class="calc-metric-value" id="jong-monthly-target">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">당월 예상실적 (원)</div>
+                  <div class="calc-metric-value" id="jong-monthly-actual">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">예상 달성률</div>
+                  <div class="calc-metric-value" id="jong-monthly-rate">—</div>
+                  <div class="calc-auto-hint">자동 계산</div>
+                </div>
+              </div>
+              <div style="height:0.5px; background:var(--border); margin:12px 0;"></div>
+              <div class="calc-sub-title">누계</div>
+              <div class="calc-row3">
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 목표 (원)</div>
+                  <div class="calc-metric-value" id="jong-cumul-target">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 예상실적 (원)</div>
+                  <div class="calc-metric-value" id="jong-cumul-actual">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">예상 달성률</div>
+                  <div class="calc-metric-value" id="jong-cumul-rate">—</div>
+                  <div class="calc-auto-hint">자동 계산</div>
+                </div>
+              </div>
+              <div class="calc-score-inline">
+                <span class="calc-score-inline-label">예상점수</span>
+                <span class="calc-score-inline-val blue" id="jong-total-score">—</span>
+                <div class="calc-score-inline-div"></div>
+                <div class="calc-score-inline-formula" id="jong-formula">—</div>
+              </div>
+              <button class="calc-link-btn">
+                <i class="ti ti-external-link" aria-hidden="true"></i>
+                종횡무진 거래처 / 아이템 검색 바로가기
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="calc-section" id="section-gtm" style="display:none;">
-        <div class="calc-section-title" id="gtm-section-title">GTM</div>
-        <div class="input-grid">
-          <div class="input-group">
-            <label id="gtm-target-label">GTM 목표 (원)</label>
-            <input type="text" id="gtm-target" class="comma-input" placeholder="예: 1000000000">
-            <div class="input-hint" id="gtm-target-hint"></div>
+      <!-- GTM 계산기 -->
+      <div class="calc-section-wrap" id="wrap-gtm">
+        <div class="calc-toggle-btn" onclick="toggleCalcSection('gtm')">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:13px; font-weight:600;" id="gtm-title-label">GTM</span>
+            <span style="font-size:12px; color:var(--text-muted);" id="gtm-배점-label">배점 —</span>
           </div>
-          <div class="input-group">
-            <label id="gtm-actual-label">GTM 실적 (원)</label>
-            <input type="text" id="gtm-actual" class="comma-input" placeholder="예: 1100000000">
-            <div class="input-hint" id="gtm-actual-hint"></div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:600; color:var(--accent);" id="gtm-preview">— 점</span>
+            <i class="ti ti-chevron-down calc-chevron" id="chevron-gtm" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="calc-detail-wrap" id="detail-gtm">
+          <div class="calc-detail-inner">
+            <div class="calc-sub-card">
+              <div class="calc-sub-title">당월</div>
+              <div class="calc-row3">
+                <div class="calc-metric">
+                  <div class="calc-metric-label">당월 목표 (원)</div>
+                  <div class="calc-metric-value" id="gtm-monthly-target">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">당월 예상실적 (원)</div>
+                  <div class="calc-metric-value" id="gtm-monthly-actual">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">예상 달성률</div>
+                  <div class="calc-metric-value" id="gtm-monthly-rate">—</div>
+                  <div class="calc-auto-hint">자동 계산</div>
+                </div>
+              </div>
+              <div style="height:0.5px; background:var(--border); margin:12px 0;"></div>
+              <div class="calc-sub-title">누계</div>
+              <div class="calc-row3">
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 목표 (원)</div>
+                  <div class="calc-metric-value" id="gtm-cumul-target">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">누계 예상실적 (원)</div>
+                  <div class="calc-metric-value" id="gtm-cumul-actual">—</div>
+                  <div class="calc-db-hint">DB 자동</div>
+                </div>
+                <div class="calc-metric">
+                  <div class="calc-metric-label">예상 달성률</div>
+                  <div class="calc-metric-value" id="gtm-cumul-rate">—</div>
+                  <div class="calc-auto-hint">자동 계산</div>
+                </div>
+              </div>
+              <div class="calc-score-inline">
+                <span class="calc-score-inline-label">예상점수</span>
+                <span class="calc-score-inline-val blue" id="gtm-total-score">—</span>
+                <div class="calc-score-inline-div"></div>
+                <div class="calc-score-inline-formula" id="gtm-formula">—</div>
+              </div>
+              <button class="calc-link-btn">
+                <i class="ti ti-external-link" aria-hidden="true"></i>
+                GTM 거래처별 현황 바로가기
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="calc-section" id="section-platform" style="display:none;">
-        <div class="calc-section-title">플랫폼매출 (가이드매출)</div>
-        <div class="input-grid">
-          <div class="input-group">
-            <label>가이드매출 목표 (원)</label>
-            <input type="text" id="platform-target" class="comma-input" placeholder="예: 2000000000">
-            <div class="input-hint" id="platform-target-hint"></div>
-          </div>
-          <div class="input-group">
-            <label>가이드매출 실적 (원)</label>
-            <input type="text" id="platform-actual" class="comma-input" placeholder="예: 2100000000">
-            <div class="input-hint" id="platform-actual-hint"></div>
-          </div>
-        </div>
-      </div>
-
-      <button class="calc-btn" onclick="calculateScore()">🧮 점수 계산하기</button>
-
-      <div class="result-box" id="result-box">
-        <div class="result-header">
-          <div>
-            <div class="result-name" id="r-name"></div>
-            <div style="font-size:11px; opacity:0.75; margin-top:2px;" id="r-rrr"></div>
-          </div>
-          <div style="text-align:right;">
-            <div class="result-total" id="r-total"></div>
-            <div class="result-label">예상 종합점수 / 100점</div>
-          </div>
-        </div>
-        <div class="result-grid" id="r-grid"></div>
-      </div>
     </div>
 
     <div id="no-data-msg" style="text-align:center; padding:40px; color:var(--text-muted); font-size:13px;">
-      ⬆️ 엑셀 파일을 먼저 업로드해주세요
+      데이터를 불러오는 중입니다...
     </div>
   </div>
 
@@ -970,16 +1338,18 @@ async function loadKPIData() {
 
     buildSelects();
 
-    // 조직원은 본인 자동 선택 + 계산기 탭으로 이동
+    // 계산기 탭으로 이동
+    switchTab('calc');
+
+    // 조직원은 본인 자동 렌더링
     if (currentUser.role === '조직원' && employees.length === 1) {
-      switchTab('calc');
-      setTimeout(() => {
-        const sel = document.getElementById('sel-employee');
-        if (sel.options.length > 1) {
-          sel.selectedIndex = 1;
-          loadEmployeeData();
-        }
-      }, 300);
+      currentEmployee = employees[0];
+      renderCalc(currentEmployee);
+      document.getElementById('emp-select-wrap').style.display = 'none';
+    } else {
+      // 관리자/조직장은 직원 선택 드롭다운 표시
+      document.getElementById('emp-select-wrap').style.display = 'block';
+      buildSelects();
     }
 
     // 권한에 따라 탭 표시 제어
@@ -1418,6 +1788,284 @@ function rebalanceGoals() {
   document.getElementById('rebalance-result').style.display = 'block';
   document.getElementById('rebalance-result').scrollIntoView({ behavior: 'smooth' });
 }
+
+// ── 계산기 섹션 접기/펴기 ──
+function toggleCalcSection(name) {
+  const detail = document.getElementById('detail-' + name);
+  const chevron = document.getElementById('chevron-' + name);
+  const isOpen = detail.classList.contains('open');
+  detail.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+// ── 계산기 직원 로드 (관리자/조직장용) ──
+function loadCalcEmployee() {
+  const name = document.getElementById('sel-employee').value;
+  if (!name) return;
+  currentEmployee = employees.find(e => e.name === name);
+  if (currentEmployee) renderCalc(currentEmployee);
+}
+
+// ── 계산기 렌더링 ──
+function renderCalc(emp) {
+  document.getElementById('calc-body').style.display = 'block';
+  document.getElementById('no-data-msg').style.display = 'none';
+
+  // 프로필
+  const initials = emp.name.slice(-2);
+  document.getElementById('calc-avatar').textContent = initials;
+  document.getElementById('calc-name').textContent = emp.name;
+  document.getElementById('calc-team').textContent = emp.team || '';
+  document.getElementById('calc-rrr').textContent = emp.rrr_type;
+
+  const pt = emp.points;
+  const type = emp.rrr_type;
+
+  // 배점 라벨
+  document.getElementById('must-배점-label').textContent = `배점 ${pt.must}점`;
+  document.getElementById('gtm-배점-label').textContent = `배점 ${pt.gtm}점`;
+
+  // GTM 타이틀 (MD는 컴코자사재고)
+  document.getElementById('gtm-title-label').textContent = emp.rrr === 'MD' ? 'GTM (컴코자사재고)' : 'GTM';
+
+  // 펀넬 타이틀/배점
+  const hasImwol = pt.imwol > 0;
+  const hasFunnel = pt.imwol > 0 || pt.chong > 0;
+  document.getElementById('funnel-title-label').textContent = hasImwol ? '익월펀넬' : '총펀넬';
+  document.getElementById('funnel-배점-label').textContent = `배점 ${hasImwol ? pt.imwol : pt.chong}점`;
+  document.getElementById('funnel-imwol-title').textContent = hasImwol
+    ? '익월펀넬 — 세금계산서 발행일이 익월인 펀넬'
+    : '총펀넬';
+
+  // 종횡무진 표시 여부 (CAM-1,2 / CM만)
+  const hasJong = pt.jong > 0;
+  document.getElementById('wrap-jong').style.display = hasJong ? 'block' : 'none';
+  if (hasJong) {
+    document.getElementById('jong-배점-label').textContent = `배점 ${pt.jong}점`;
+  }
+
+  // 최신 월 데이터
+  const months = ['4월','3월','2월','1월'];
+  let latestMonth = null, latestData = null;
+  for (const m of months) {
+    const md = emp.months[m];
+    if (md && md.must_target) { latestMonth = m; latestData = md; break; }
+  }
+
+  if (!latestData) return;
+
+  // MUST 데이터 채우기
+  const prevMustActual = emp.cumul_must_actual - (latestData.must_actual || 0);
+  const prevMustTarget = latestData.must_target * (emp.active_months - 1);
+  document.getElementById('must-prev-target').textContent = fmt(prevMustTarget);
+  document.getElementById('must-prev-actual').textContent = fmt(prevMustActual);
+  const prevRate = prevMustTarget > 0 ? prevMustActual / prevMustTarget : 0;
+  setRateEl('must-prev-rate', prevRate);
+
+  document.getElementById('must-curr-target').textContent = fmt(latestData.must_target * emp.active_months);
+  document.getElementById('must-profit-rate').textContent = latestData.must_actual && latestData.guide_actual
+    ? ((latestData.must_actual / latestData.guide_actual) * 100).toFixed(2) + '%'
+    : '—';
+
+  // MUST 예상매출 초기값 (가이드매출 기준)
+  const initSales = latestData.guide_actual || 0;
+  document.getElementById('must-expected-sales').value = fmt(initSales);
+
+  // 펀넬 데이터
+  document.getElementById('funnel-imwol-conv').textContent = latestData.funnel_rate !== null ? (latestData.funnel_rate * 100).toFixed(1) + '%' : '—';
+  document.getElementById('funnel-imwol-guide').textContent = fmt(latestData.funnel_target || 0);
+  document.getElementById('funnel-ikik-guide').textContent = fmt(latestData.funnel_target || 0);
+  document.getElementById('funnel-guide-disp').textContent = fmt(latestData.funnel_target || 0);
+  document.getElementById('funnel-prev-rate').textContent = latestData.funnel_rate !== null ? (latestData.funnel_rate * 100).toFixed(1) + '%' : '—';
+
+  // 펀넬 초기값
+  document.getElementById('funnel-imwol-funnel').value = fmt(latestData.funnel_actual || 0);
+  document.getElementById('funnel-curr-sales').value = fmt(latestData.funnel_actual || 0);
+
+  // 종횡무진 데이터
+  if (hasJong) {
+    document.getElementById('jong-monthly-target').textContent = fmt(latestData.jong_target || 0);
+    document.getElementById('jong-monthly-actual').textContent = fmt(latestData.jong_actual || 0);
+    const jongMonthRate = latestData.jong_target > 0 ? latestData.jong_actual / latestData.jong_target : 0;
+    setRateEl('jong-monthly-rate', jongMonthRate);
+
+    // 누계 (간단히 당월 × 영업월수로 추정)
+    const jongCumulTarget = latestData.jong_target * emp.active_months;
+    const jongCumulActual = latestData.jong_actual * emp.active_months;
+    document.getElementById('jong-cumul-target').textContent = fmt(jongCumulTarget);
+    document.getElementById('jong-cumul-actual').textContent = fmt(jongCumulActual);
+    const jongCumulRate = jongCumulTarget > 0 ? jongCumulActual / jongCumulTarget : 0;
+    setRateEl('jong-cumul-rate', jongCumulRate);
+    const jongScore = Math.min(jongCumulRate * pt.jong, pt.jong);
+    document.getElementById('jong-total-score').textContent = jongScore.toFixed(1);
+    document.getElementById('jong-formula').innerHTML = `min(달성률 × 배점, 배점) = min(<span>${(jongCumulRate*100).toFixed(1)}%</span> × ${pt.jong}, ${pt.jong}) = <span>${jongScore.toFixed(1)}</span>`;
+    document.getElementById('jong-preview').textContent = jongScore.toFixed(1) + ' 점';
+  }
+
+  // GTM 데이터
+  document.getElementById('gtm-monthly-target').textContent = fmt(latestData.gtm_target || 0);
+  document.getElementById('gtm-monthly-actual').textContent = fmt(latestData.gtm_actual || 0);
+  const gtmMonthRate = latestData.gtm_target > 0 ? latestData.gtm_actual / latestData.gtm_target : 0;
+  setRateEl('gtm-monthly-rate', gtmMonthRate);
+  const gtmCumulTarget = latestData.gtm_target * emp.active_months;
+  const gtmCumulActual = latestData.gtm_actual * emp.active_months;
+  document.getElementById('gtm-cumul-target').textContent = fmt(gtmCumulTarget);
+  document.getElementById('gtm-cumul-actual').textContent = fmt(gtmCumulActual);
+  const gtmCumulRate = gtmCumulTarget > 0 ? gtmCumulActual / gtmCumulTarget : 0;
+  setRateEl('gtm-cumul-rate', gtmCumulRate);
+  const gtmScore = Math.min(gtmCumulRate * pt.gtm, pt.gtm);
+  document.getElementById('gtm-total-score').textContent = gtmScore.toFixed(1);
+  document.getElementById('gtm-formula').innerHTML = `min(달성률 × 배점, 배점) = min(<span>${(gtmCumulRate*100).toFixed(1)}%</span> × ${pt.gtm}, ${pt.gtm}) = <span>${gtmScore.toFixed(1)}</span>`;
+  document.getElementById('gtm-preview').textContent = gtmScore.toFixed(1) + ' 점';
+
+  calcMUST();
+  calcFunnel();
+}
+
+function fmt(n) { if (!n) return '—'; return Math.round(n).toLocaleString('ko-KR'); }
+function fmtD(n, d) { return n.toFixed(d); }
+function fmtP(n) { return (n * 100).toFixed(1) + '%'; }
+function parseNum(s) { return parseFloat(String(s).replace(/,/g, '')) || 0; }
+
+function setRateEl(id, rate) {
+  const el = document.getElementById(id);
+  el.textContent = fmtP(rate);
+  el.className = 'calc-metric-value ' + (rate >= 1 ? 'green' : 'red');
+}
+
+function fmtCalcInput(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const cursor = el.selectionStart;
+  const raw = el.value.replace(/,/g, '');
+  if (!isNaN(raw) && raw !== '') el.value = parseFloat(raw).toLocaleString('ko-KR');
+  try { el.setSelectionRange(cursor, cursor); } catch(e) {}
+}
+
+// ── MUST 계산 ──
+function calcMUST() {
+  if (!currentEmployee) return;
+  const emp = currentEmployee;
+  fmtCalcInput('must-expected-sales');
+
+  const months = ['4월','3월','2월','1월'];
+  let latestData = null;
+  for (const m of months) {
+    const md = emp.months[m];
+    if (md && md.must_target) { latestData = md; break; }
+  }
+  if (!latestData) return;
+
+  const profitRate = latestData.must_actual && latestData.guide_actual
+    ? latestData.must_actual / latestData.guide_actual : 0;
+  const sales = parseNum(document.getElementById('must-expected-sales').value);
+  const monthlyProfit = sales * profitRate;
+  const prevActual = emp.cumul_must_actual - (latestData.must_actual || 0);
+  const currActual = prevActual + monthlyProfit;
+  const currTarget = latestData.must_target * emp.active_months;
+  const currRate = currTarget > 0 ? currActual / currTarget : 0;
+  const baseScore = Math.min(currRate * emp.points.must, emp.points.must);
+  const bonus = Math.max((currActual - emp.active_months * 10000000) / 100000000 * 2, 0);
+  const total = baseScore + bonus;
+
+  document.getElementById('must-monthly-profit').textContent = fmt(monthlyProfit);
+  document.getElementById('must-curr-actual').textContent = fmt(currActual);
+  setRateEl('must-curr-rate', currRate);
+  document.getElementById('must-base-score').textContent = baseScore.toFixed(1);
+  document.getElementById('must-bonus-score').textContent = '+' + bonus.toFixed(1);
+  document.getElementById('must-total-score').textContent = total.toFixed(1);
+  document.getElementById('must-preview').textContent = total.toFixed(1) + ' 점';
+  document.getElementById('must-formula-note').innerHTML =
+    `기본점수: min(달성률 × 배점, 배점) = min(<span>${fmtP(currRate)}</span> × ${emp.points.must}, ${emp.points.must}) = <span>${baseScore.toFixed(1)}</span><br>` +
+    `가산점: (누계예상실적 - 영업월수 × 1,000만) ÷ 1억 × 2 = (<span>${fmt(currActual)}</span> - ${fmt(emp.active_months * 10000000)}) ÷ 100,000,000 × 2 = <span>${bonus.toFixed(1)}</span>`;
+}
+
+// ── 펀넬 계산 ──
+function calcFunnel() {
+  if (!currentEmployee) return;
+  const emp = currentEmployee;
+  const pt = emp.points;
+  fmtCalcInput('funnel-imwol-funnel');
+  fmtCalcInput('funnel-ikik-promise');
+  fmtCalcInput('funnel-ikik-other');
+
+  const months = ['4월','3월','2월','1월'];
+  let latestData = null;
+  for (const m of months) {
+    const md = emp.months[m];
+    if (md && md.funnel_target) { latestData = md; break; }
+  }
+  if (!latestData) return;
+
+  const guide = latestData.funnel_target || 0;
+  const conv = latestData.funnel_rate || 0.86;
+  const imwolFunnel = parseNum(document.getElementById('funnel-imwol-funnel').value);
+  const ikikPromise = parseNum(document.getElementById('funnel-ikik-promise').value);
+  const ikikOther = parseNum(document.getElementById('funnel-ikik-other').value);
+
+  const imwolExp = imwolFunnel * conv;
+  const imwolRate = guide > 0 ? imwolExp / guide : 0;
+  const ikikPromiseExp = ikikPromise * conv;
+  const ikikOtherExp = ikikOther * 0.002;
+  const ikikTotal = ikikPromiseExp + ikikOtherExp;
+  const ikikRate = guide > 0 ? ikikTotal / guide : 0;
+
+  const funnelPt = pt.imwol > 0 ? pt.imwol : pt.chong;
+  const baseScore = Math.min(imwolRate * funnelPt, funnelPt);
+
+  function getBonus(r) {
+    if (r >= 0.9) return 5; if (r >= 0.8) return 4;
+    if (r >= 0.7) return 3; if (r >= 0.6) return 2;
+    if (r >= 0.5) return 1; return 0;
+  }
+  const bonus = getBonus(ikikRate);
+
+  const prevRateCapped = Math.min(latestData.funnel_rate || 0, 1.0);
+  const currSales = parseNum(document.getElementById('funnel-curr-sales').value);
+  const currRate = guide > 0 ? currSales / guide : 0;
+  const diff = currRate - prevRateCapped;
+  const deduct = diff < -0.1 ? -5 : 0;
+  const total = baseScore + bonus + deduct;
+
+  document.getElementById('funnel-imwol-conv').textContent = (conv * 100).toFixed(1) + '%';
+  document.getElementById('funnel-imwol-exp').textContent = fmt(imwolExp);
+  document.getElementById('funnel-imwol-guide').textContent = fmt(guide);
+  document.getElementById('funnel-imwol-rate').textContent = fmtP(imwolRate);
+  document.getElementById('funnel-imwol-rate').className = imwolRate >= 1 ? 'green' : 'red';
+  document.getElementById('funnel-ikik-promise-conv').textContent = (conv * 100).toFixed(1) + '%';
+  document.getElementById('funnel-ikik-promise-exp').textContent = fmt(ikikPromiseExp);
+  document.getElementById('funnel-ikik-other-conv').textContent = '0.2%';
+  document.getElementById('funnel-ikik-other-exp').textContent = fmt(ikikOtherExp);
+  document.getElementById('funnel-ikik-total').textContent = fmt(ikikTotal);
+  document.getElementById('funnel-ikik-rate').textContent = fmtP(ikikRate);
+  document.getElementById('funnel-ikik-guide').textContent = fmt(guide);
+
+  document.getElementById('funnel-base-score').textContent = baseScore.toFixed(1);
+  document.getElementById('funnel-base-formula').innerHTML = `min(달성률 × 배점, 배점) = min(<span>${fmtP(imwolRate)}</span> × ${funnelPt}, ${funnelPt}) = <span>${baseScore.toFixed(1)}</span>`;
+  document.getElementById('funnel-bonus-score').textContent = '+' + bonus.toFixed(1);
+  document.getElementById('funnel-bonus-formula').innerHTML = `50%↑ +1점 / 60%↑ +2점 / 70%↑ +3점 / 80%↑ +4점 / 90%↑ +5점<br>달성률 <span>${fmtP(ikikRate)}</span> → 가산점 <span>+${bonus}점</span>`;
+
+  document.getElementById('funnel-curr-rate').textContent = fmtP(currRate);
+  document.getElementById('funnel-curr-rate').className = 'calc-metric-value ' + (currRate >= prevRateCapped ? 'green' : 'red');
+  document.getElementById('funnel-diff').textContent = (diff * 100).toFixed(1) + '%p';
+  document.getElementById('funnel-diff').className = 'calc-metric-value ' + (diff < -0.1 ? 'red' : 'green');
+  document.getElementById('funnel-deduct-score').textContent = deduct.toFixed(1);
+  document.getElementById('funnel-deduct-formula').innerHTML =
+    `전월예상 달성률 100% 초과 시 100%로 의제 후 차이 계산. 10%p 초과 시 <span>-5점</span><br>` +
+    `전월예상 <span>${fmtP(latestData.funnel_rate || 0)}</span> → 의제 <span>${fmtP(prevRateCapped)}</span> / 차이 <span>${(diff*100).toFixed(1)}%p</span> → <span>${deduct < 0 ? '감점 적용 (-5점)' : '감점 없음'}</span>`;
+
+  document.getElementById('funnel-score-base').textContent = baseScore.toFixed(1);
+  document.getElementById('funnel-score-bonus').textContent = '+' + bonus.toFixed(1);
+  document.getElementById('funnel-score-deduct').textContent = deduct.toFixed(1);
+  document.getElementById('funnel-total-score').textContent = total.toFixed(1);
+  document.getElementById('funnel-preview').textContent = total.toFixed(1) + ' 점';
+}
+
+function calcFunnelDeduct() {
+  fmtCalcInput('funnel-curr-sales');
+  calcFunnel();
+}
+
 </script>
 </body>
 </html>
